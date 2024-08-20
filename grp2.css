@@ -1,0 +1,124 @@
+.team {
+    width: 90%;
+    height: 100h;
+    /* background-image: url(image/bg1.jpg);*/
+    background-size: cover;
+    background-position: center;
+    margin: 3rem;
+}
+.team h3{
+display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+    margin-bottom: 30px;
+    color: orange;
+}
+.team h1,
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+
+.team h1 span {
+    color: #00d0ff;
+    margin-left: 10px;
+    font-family: mv boli;
+}
+
+.team h1 span::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #00d0ff;
+    display: block;
+    position: relative;
+    bottom: 10px;
+}
+
+.team .team_box {
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 7rem;
+}
+
+.team .team_box .profile {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    margin: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 0 8px #00d0ff;
+    transition: 0.4s;
+}
+
+.team .team_box .profile:hover {
+    border-radius: 20px;
+    height: 320px;
+}
+
+.team .team_box .profile img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px orange;
+    z-index: 2;
+    transition: 0.4s;
+}
+
+.team .team_box .profile:hover img {
+    border-radius: 20px;
+    margin-top: -230px;
+}
+
+.team .team_box .profile .info {
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    transition: 0.4s;
+}
+
+.team .team_box .profile:hover .info {
+    top: 55%;
+}
+
+.team .team_box .profile .info .name {
+    color: orange;
+    font-size: 21.6px;
+    margin-bottom: 15px;
+}
+
+.team .team_box .profile .info .bio {
+    width: 70%;
+    text-align: center;
+    font-size: 1.3em;
+    margin: 0 auto 10px auto;
+    color: #0088ff;
+}
+
+.team .team_box .profile .info .team_icon a {
+    margin: 10px 5px 5px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+}
+
+.team .team_box .profile .info .team_icon a:hover {
+    color: #00d0ff;
+}
