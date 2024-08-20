@@ -1,14 +1,15 @@
 body {
     background-color: #e3f9e5;
-    margin: 0;
     padding: 0;
+    padding: 0 0 50px 0;
     font-family: Arial, sans-serif;
 }
 
 .team {
     width: 90%;
-    height: 100vh;
-    margin: 3rem auto;
+    height: 160vh;
+    margin: 3rem auto 3rem auto;
+    padding-bottom: 50px;
 }
 
 .team h3 {
