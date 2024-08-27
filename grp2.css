@@ -89,11 +89,13 @@ h2 {
     box-shadow: 0 0 8px rgb(255, 0, 0);
     z-index: 2;
     transition: 0.4s;
+    border-radius: 50%;
 }
 
 .team .team_box .profile:hover img {
     border-radius: 20px;
     margin-top: -230px;
+    z-index: 500;
 }
 
 .team .team_box .profile .info {
@@ -131,4 +133,74 @@ h2 {
 
 .team .team_box .profile .info .team_icon a:hover {
     color: #000080;
+}
+
+/* Button Styles */
+.info-btn {
+    background-color: #008080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Info Container Styles */
+.info-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f4f4f9;
+    border: 2px solid #008282;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    width: 350px;
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Name Styles */
+.info-container h2 {
+    font-size: 28px;
+    color: #333333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.info-container h4 {
+    font-size: 20px;
+    color: #333333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Text Styles */
+.info-container p {
+    font-size: 18px;
+    color: #666666;
+    margin: 8px 0;
+}
+
+/* Exit Button Styles */
+.exit-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.exit-btn:hover {
+    background-color: #c0392b;
 }
