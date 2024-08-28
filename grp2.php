@@ -7,6 +7,7 @@ $teamMembers = [
         'role' => 'Assistant Leader',
         'course' => 'BSIT',
         'age' => 21,
+        'gender' => 'Male',
         'contact' => '09811732889',
         'address' => '208 Molina St. Purok 6 Alabang Muntinlupa City',
         'image' => 'Assets/len.jpg',
@@ -21,6 +22,7 @@ $teamMembers = [
         'role' => 'Leader',
         'course' => 'BSIT',
         'age' => 22,
+        'gender' => 'Male',
         'contact' => '09619669812',
         'address' => 'Baranggay Marcelo Green Village Parañaque City',
         'image' => 'Assets/kyle.jpg',
@@ -35,6 +37,7 @@ $teamMembers = [
         'role' => 'Member',
         'course' => 'BSIT',
         'age' => 20,
+        'gender' => 'Female',
         'contact' => '09510681571',
         'address' => 'Megsha Homeowners Tagle Compound, San Guillermo Street. Putatan, Muntinlupa City.',
         'image' => 'Assets/hannah.jpg',
@@ -49,6 +52,7 @@ $teamMembers = [
         'role' => 'Member',
         'course' => 'BSIT',
         'age' => 21,
+        'gender' => 'Male',
         'contact' => '09515695918',
         'address' => '200 Pedro Diaz St. Muntinlupa City',
         'image' => 'Assets/ian.png',
@@ -63,6 +67,7 @@ $teamMembers = [
         'role' => 'Member',
         'course' => 'BSIT',
         'age' => 20,
+        'gender' => 'Male',
         'contact' => '09994531752',
         'address' => ' 19a hyacinth st south Greenheigts village Muntinlupa city',
         'image' => 'Assets/lester.jpg',
@@ -71,7 +76,6 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/lester-planda%C3%B1o-6b86bb322?trk=contact-info',
         'coursera' => 'https://www.coursera.org/user/fba21b844e5e2a0e91abcb31449b73f1'
     ],
-    // add na  lang ng another 
 ];
 ?>
 
@@ -101,6 +105,7 @@ $teamMembers = [
                         <h4><?php echo $member['role']; ?></h4>
                         <p>Course: <?php echo $member['course']; ?></p>
                         <p>Age: <?php echo $member['age']; ?></p>
+                        <p>Gender: <?php echo $member ['gender']; ?></p>
                         <p>Contact Number: <?php echo $member['contact']; ?></p>
                         <p>Address: <?php echo $member['address']; ?></p>
                         <button class="exit-btn" onclick="hideInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Exit</button>
