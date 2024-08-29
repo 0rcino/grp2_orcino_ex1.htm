@@ -40,6 +40,32 @@ body {
     margin: 3rem auto 3rem auto;
     padding-bottom: 50px;
 }
+.slideshow-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slideshow-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides {
+    max-width: 50%;
+    max-height: 80%;
+}
+
+.slides img {
+    max-width: 50%;
+    max-height: 80%;
+    object-fit: contain;
+}
+.dot {
+    display: inline-block;
+    cursor: pointer;
+}
+
 /* Header in Info Container */
 .info-container header h1 {
     font-size: 32px;
@@ -90,7 +116,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 8rem;
+    margin-top: 7rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
     gap: 7rem;
@@ -268,4 +294,10 @@ h2 {
     transform: scale(1.2);
     border: 3px solid #002c7a;
     box-shadow: 0 0 15px #ff5c5c;
+}
+.time-container {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 5em;
+    color: #ff5c5c;
 }
