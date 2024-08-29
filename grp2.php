@@ -1,5 +1,5 @@
 <?php
-// for information Team member
+// for information for Team member
 $teamMembers = [
     // profile 1
     [
@@ -96,7 +96,26 @@ $teamMembers = [
     <!--Team-->
     <div class="team" id="Team">
         <h1>Group 2 <span> Our Team </span></h1>
-        <h3>Personal Website</h3>
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="Assets/slideshow1.png">
+            </div>
+            <div class="slide">
+                <img src="Assets/slideshow2.png">
+            </div>
+            <div class="slide">
+                <img src="Assets/slideshow3.png">
+            </div>  
+            <div style="text-align:center;">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <!-- Real-time clock -->
+        <div class="time-container">
+            <p id="realTime"><?php echo $greeting; ?>! Current Time: <?php echo $currentTime; ?></p>
+        </div>
         <!--Team Container-->
         <div class="team_box">
             <?php foreach ($teamMembers as $member): ?>
