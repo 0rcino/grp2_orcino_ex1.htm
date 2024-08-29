@@ -89,6 +89,10 @@ $teamMembers = [
     <title>Group 2</title>
 </head>
 <body>
+    <!-- Logo Image -->
+  <div class="logo-container">
+    <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
+  </div>
     <div class="team" id="Team">
         <h1>Group 2 <span> Our Team </span></h1>
         <h3>Personal Website</h3>
@@ -100,7 +104,10 @@ $teamMembers = [
                     <h2 class="name"><?php echo $member['name']; ?></h2>
                     <button class="info-btn" onclick="showInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Info</button>
                     <div id="info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>" class="info-container">
-                        <h2><?php echo $member['name']; ?></h2>
+                    <header>
+                        <h1>Information</h1>
+                    </header>    
+                    <h2><?php echo $member['name']; ?></h2>
                         <h4><?php echo $member['role']; ?></h4>
                         <p>Course: <?php echo $member['course']; ?></p>
                         <p>Age: <?php echo $member['age']; ?></p>
@@ -120,7 +127,7 @@ $teamMembers = [
             <?php endforeach; ?>      
         </div>
     </div>
-        <button onclick="scrollToTop()" id="backToTop">↑</button>
+    <button onclick="scrollToTop()" id="backToTop">↑</button>
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <script src="grp2.js"></script>

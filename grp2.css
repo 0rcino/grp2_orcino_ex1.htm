@@ -1,20 +1,20 @@
 body {
     background-color: #e3f9e5;
-
     font-family: Arial, sans-serif;
 }
+
 /* Custom scrollbar styling */
 ::-webkit-scrollbar {
     width: 12px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #3498db;
+    background-color: #ff5c5c;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #000;
+    background-color: #002c7a;
 }
 
 /* Scrollable content styling */
@@ -23,11 +23,30 @@ body {
     overflow-y: scroll;
 }
 
+.logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo {
+    width: 80px;
+    height: auto;
+}
+
 .team {
     width: 100%;
     height: 180vh;
     margin: 3rem auto 3rem auto;
     padding-bottom: 50px;
+}
+/* Header in Info Container */
+.info-container header h1 {
+    font-size: 32px;
+    color: #002c7a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
 }
 
 .team h3 {
@@ -36,7 +55,7 @@ body {
     justify-content: center;
     font-size: 45px;
     margin-bottom: 30px;
-    color: #00008b;
+    color: #002c7a;
 }
 
 .team h1,
@@ -50,7 +69,7 @@ h2 {
 }
 
 .team h1 span {
-    color: #008080;
+    color: #ff5c5c;
     margin-left: 10px;
     font-family: mv boli;
 }
@@ -59,8 +78,7 @@ h2 {
     content: '';
     width: 100%;
     height: 2px;
-    background: #008080;
-
+    background: #ff5c5c;
     display: block;
     position: relative;
     bottom: 10px;
@@ -74,7 +92,7 @@ h2 {
     justify-content: center;
     margin-top: 8rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(235px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
     gap: 7rem;
 }
 
@@ -87,8 +105,8 @@ h2 {
     align-items: center;
     justify-content: center;
     position: relative;
-    border: 2px solid #000080;
-    box-shadow: 0 0 8px #000080;
+    border: 2px solid #002c7a;
+    box-shadow: 0 0 8px #002c7a;
     transition: 0.4s;
 }
 
@@ -101,10 +119,10 @@ h2 {
     width: 250px;
     height: 250px;
     object-fit: cover;
-    object-position: center;
     border-radius: 50%;
+    object-position: center;
     cursor: pointer;
-    box-shadow: 0 0 8px rgb(255, 0, 0);
+    box-shadow: 0 0 8px #ff5c5c;
     z-index: 2;
     transition: 0.4s;
     border-radius: 50%;
@@ -128,7 +146,7 @@ h2 {
 }
 
 .team .team_box .profile .info .name {
-    color: #00008b;
+    color: #002c7a;
     font-size: 19px;
     margin-bottom: 15px;
 }
@@ -138,7 +156,7 @@ h2 {
     text-align: center;
     font-size: 1.3em;
     margin: 0 auto 10px auto;
-    color: #008080;
+    color: #ff5c5c;
 }
 
 .team .team_box .profile .info .team_icon a {
@@ -146,17 +164,17 @@ h2 {
     cursor: pointer;
     transition: 0.3s;
     font-size: 1.2em;
-    color: #ff8c00;
+    color: #002c7a;
     text-decoration: none;
 }
 
 .team .team_box .profile .info .team_icon a:hover {
-    color: #000080;
+    color: #ff5c5c;
 }
 
 /* Button Styles */
 .info-btn {
-    background-color: #008080;
+    background-color: #002c7a;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -175,7 +193,7 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #f4f4f9;
-    border: 2px solid #008282;
+    border: 2px solid #002c7a;
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
@@ -192,6 +210,7 @@ h2 {
     margin-bottom: 15px;
     font-weight: bold;
 }
+
 .info-container h4 {
     font-size: 20px;
     color: #333333;
@@ -208,7 +227,7 @@ h2 {
 
 /* Exit Button Styles */
 .exit-btn {
-    background-color: #e74c3c;
+    background-color: #ff5c5c;
     color: white;
     border: none;
     padding: 10px 25px;
@@ -223,6 +242,7 @@ h2 {
 .exit-btn:hover {
     background-color: #c0392b;
 }
+
 /* Back to Top Button */
 #backToTop {
     display: none;
@@ -232,7 +252,7 @@ h2 {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #3498db;
+    background-color: #002c7a;
     color: white;
     cursor: pointer;
     width: 45px;
@@ -246,6 +266,6 @@ h2 {
 /* Hover effect for Back to Top button */
 #backToTop:hover {
     transform: scale(1.2);
-    border: 3px solid #3498db;
-    box-shadow: 0 0 15px #2980b9;
+    border: 3px solid #002c7a;
+    box-shadow: 0 0 15px #ff5c5c;
 }
