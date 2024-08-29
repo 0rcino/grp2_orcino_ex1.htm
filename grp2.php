@@ -78,7 +78,6 @@ $teamMembers = [
     ],
 ];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +120,7 @@ $teamMembers = [
             <?php endforeach; ?>      
         </div>
     </div>
+        <button onclick="scrollToTop()" id="backToTop">↑</button>
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <script src="grp2.js"></script>

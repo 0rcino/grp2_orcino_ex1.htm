@@ -3,10 +3,29 @@ body {
 
     font-family: Arial, sans-serif;
 }
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3498db;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #000;
+}
+
+/* Scrollable content styling */
+.scrollable {
+    max-height: 90px;
+    overflow-y: scroll;
+}
 
 .team {
     width: 100%;
-    height: 190vh;
+    height: 180vh;
     margin: 3rem auto 3rem auto;
     padding-bottom: 50px;
 }
@@ -55,7 +74,7 @@ h2 {
     justify-content: center;
     margin-top: 8rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(235px, 2fr));
     gap: 7rem;
 }
 
@@ -128,7 +147,7 @@ h2 {
     transition: 0.3s;
     font-size: 1.2em;
     color: #ff8c00;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .team .team_box .profile .info .team_icon a:hover {
@@ -203,4 +222,30 @@ h2 {
 
 .exit-btn:hover {
     background-color: #c0392b;
+}
+/* Back to Top Button */
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for Back to Top button */
+#backToTop:hover {
+    transform: scale(1.2);
+    border: 3px solid #3498db;
+    box-shadow: 0 0 15px #2980b9;
 }
