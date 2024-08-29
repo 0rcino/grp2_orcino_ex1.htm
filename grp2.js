@@ -6,6 +6,30 @@ function showInfo(containerId) {
 function hideInfo(containerId) {
     document.getElementById(containerId).style.display = 'none';
 }
+
+// Slideshow
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName('slide');
+    var dots = document.getElementsByClassName('dot');
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+    slides[slideIndex - 1].style.display = 'block';
+    dots[slideIndex - 1].className += ' active';
+    setTimeout(showSlides, 2000);
+}
+
 // for backtotop button
 let backToTopBtn = document.getElementById('backToTop');
 
@@ -28,3 +52,30 @@ function scrollToTop() {
         behavior: 'smooth',
     });
 }
+// Function to update the time and greeting
+function updateTime() {
+    const options = {
+        timeZone: 'Asia/Manila',
+        hour12: true,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    };
+    const currentTime = new Date().toLocaleTimeString('en-US', options);
+
+    const hour = new Date().getHours(); // Get the current hour
+    let greeting;
+
+    if (hour >= 5 && hour < 12) {
+        greeting = 'Good Morning';
+    } else if (hour >= 12 && hour < 18) {
+        greeting = 'Good Afternoon';
+    } else {
+        greeting = 'Good Evening';
+    }
+
+    document.getElementById('realTime').textContent =
+        greeting + '! Current Time: ' + currentTime;
+}
+
+setInterval(updateTime, 1000); // Update the time every second
