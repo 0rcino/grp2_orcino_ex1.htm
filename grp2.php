@@ -90,23 +90,27 @@ $teamMembers = [
 </head>
 <body>
     <!-- Logo Image -->
-  <div class="logo-container">
-    <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
-  </div>
+    <div class="logo-container">
+        <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
+    </div>
+    <!--Team-->
     <div class="team" id="Team">
         <h1>Group 2 <span> Our Team </span></h1>
         <h3>Personal Website</h3>
+        <!--Team Container-->
         <div class="team_box">
             <?php foreach ($teamMembers as $member): ?>
             <div class="profile">
                 <img src="<?php echo $member['image']; ?>">
                 <div class="info">
                     <h2 class="name"><?php echo $member['name']; ?></h2>
+                    <!-- Button for info open-->
                     <button class="info-btn" onclick="showInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Info</button>
                     <div id="info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>" class="info-container">
                     <header>
                         <h1>Information</h1>
-                    </header>    
+                    </header>   
+                    <!--Information about Team Member--> 
                     <h2><?php echo $member['name']; ?></h2>
                         <h4><?php echo $member['role']; ?></h4>
                         <p>Course: <?php echo $member['course']; ?></p>
@@ -114,8 +118,10 @@ $teamMembers = [
                         <p>Gender: <?php echo $member ['gender']; ?></p>
                         <p>Contact Number: <?php echo $member['contact']; ?></p>
                         <p>Address: <?php echo $member['address']; ?></p>
+                        <!-- Button for info exit-->
                         <button class="exit-btn" onclick="hideInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Exit</button>
                     </div>
+                    <!--Team icon and social media links-->
                     <div class="team_icon">
                         <a class="fa-brands fa-github" href="<?php echo $member['github']; ?>" target="_blank"></a>
                         <a class="fa-brands fa-facebook" href="<?php echo $member['facebook']; ?>" target="_blank"></a>
@@ -127,6 +133,7 @@ $teamMembers = [
             <?php endforeach; ?>      
         </div>
     </div>
+    <!-- Button for scrolltotop-->
     <button onclick="scrollToTop()" id="backToTop">↑</button>
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
