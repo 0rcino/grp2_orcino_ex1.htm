@@ -30,13 +30,13 @@ body {
 }
 
 .logo {
-    width: 80px;
+    width: 85px;
     height: auto;
 }
 
 .team {
     width: 100%;
-    height: 180vh;
+    height: 230vh;
     margin: 3rem auto 3rem auto;
     padding-bottom: 50px;
 }
@@ -84,8 +84,7 @@ body {
     color: #002c7a;
 }
 
-.team h1,
-h2 {
+.team h1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,8 +97,12 @@ h2 {
     color: #ff5c5c;
     margin-left: 10px;
     font-family: mv boli;
+    cursor: pointer;
+    text-decoration: none;
 }
-
+a {
+    text-decoration: none;
+}
 .team h1 span::after {
     content: '';
     width: 100%;
@@ -118,7 +121,7 @@ h2 {
     justify-content: center;
     margin-top: 7rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 2fr));
     gap: 7rem;
 }
 
@@ -149,7 +152,7 @@ h2 {
     object-position: center;
     cursor: pointer;
     box-shadow: 0 0 8px #ff5c5c;
-    z-index: 2;
+    z-index: 1;
     transition: 0.4s;
     border-radius: 50%;
 }
@@ -274,8 +277,8 @@ h2 {
     display: none;
     position: fixed;
     bottom: 30px;
-    right: 30px;
-    z-index: 99;
+    right: 20px;
+    z-index: 101;
     border: none;
     outline: none;
     background-color: #002c7a;
@@ -299,5 +302,5 @@ h2 {
     text-align: center;
     font-size: 25px;
     margin-top: 5em;
-    color: #ff5c5c;
+    color: #002c7a;
 }

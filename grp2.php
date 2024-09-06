@@ -76,6 +76,7 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/lester-planda%C3%B1o-6b86bb322?trk=contact-info',
         'coursera' => 'https://www.coursera.org/user/fba21b844e5e2a0e91abcb31449b73f1'
     ],
+    
 ];
 ?>
 <!DOCTYPE html>
@@ -95,7 +96,8 @@ $teamMembers = [
     </div>
     <!--Team-->
     <div class="team" id="Team">
-        <h1>Group 2 <span> Our Team </span></h1>
+    <h1>Group 2 <a href="#teams"><span>Our Team</span></a></h1>
+
         <div class="slideshow-container">
             <div class="slide">
                 <img src="Assets/slideshow1.png">
@@ -117,7 +119,9 @@ $teamMembers = [
             <p id="realTime"><?php echo $greeting; ?>! Current Time: <?php echo $currentTime; ?></p>
         </div>
         <!--Team Container-->
-        <div class="team_box">
+          <h1 style="margin-top: 10rem; color: #ff5c5c;" id="teams">My Team</h1>
+
+        <div class="team_box" >
             <?php foreach ($teamMembers as $member): ?>
             <div class="profile">
                 <img src="<?php echo $member['image']; ?>">
