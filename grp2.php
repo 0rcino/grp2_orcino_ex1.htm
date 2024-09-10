@@ -78,6 +78,20 @@ $teamMembers = [
     ],
     
 ];
+    // Search functionality
+if (isset($_GET['query'])) {
+    $query = htmlspecialchars($_GET['query']);
+    $results = [];
+
+    // Search through the team members
+    foreach ($teamMembers as $member) {
+        if (stripos($member['name'], $query) !== false) {
+            $results[] = $member;
+        }
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,6 +107,33 @@ $teamMembers = [
     <!-- Logo Image -->
     <div class="logo-container">
         <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
+    </div>
+          <!-- Container for search bar and result -->
+    <div class="header-container">
+        <!-- Search Bar -->
+        <div class="searchbar">
+            <form action="grp2.php" method="GET">
+                <input type="text" name="query" placeholder="Name Search">
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+
+    <!-- Search Results -->
+    <div class="search-results">
+       <?php
+    if (isset($query) && !empty($query)) {
+        if (count($results) > 0) {
+            echo "<h3>Search Results:</h3>";
+            foreach ($results as $result) {
+                echo "<p><strong>Existing Member:</strong> " . htmlspecialchars($result['name']) . "</p>";
+                echo "<p>Role: " . htmlspecialchars($result['role']) . "</p>";
+            }
+        } else {
+            echo "<p>Not Existing Member: '" . htmlspecialchars($query) . "'.</p>";
+        }
+    }
+    ?>
     </div>
     <!--Team-->
     <div class="team" id="Team">
@@ -119,8 +160,7 @@ $teamMembers = [
             <p id="realTime"><?php echo $greeting; ?>! Current Time: <?php echo $currentTime; ?></p>
         </div>
         <!--Team Container-->
-          <h1 style="margin-top: 10rem; color: #ff5c5c;" id="teams">My Team</h1>
-
+        <h1 style="margin-top: 10rem; color: #ff5c5c;" id="teams">My Team</h1>
         <div class="team_box" >
             <?php foreach ($teamMembers as $member): ?>
             <div class="profile">

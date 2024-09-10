@@ -301,6 +301,66 @@ a {
 .time-container {
     text-align: center;
     font-size: 25px;
-    margin-top: 5em;
+    margin-top: 2em;
     color: #002c7a;
+}
+/* Flexbox container for search bar */
+.header-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the search bar to the right */
+    gap: 20px;
+    padding: 10px; /* Add padding for spacing */
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; /* Lighter background color */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.searchbar input {
+    font-family: Arial, sans-serif; /* Choose a suitable font */
+    font-size: 14px;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    flex-grow: 1;
+    color: #666; /* Darker text color */
+    placeholder-color: #999;
+}
+
+.searchbar button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color   0.2s ease-in-out;
+}
+
+.searchbar button:hover {
+    background-color: #005cbf;
+}
+/* Styling for the search results section */
+.search-results {
+    text-align: center;
+    padding: 10px;
+}
+
+.search-results h3 {
+    color: #002c7a;
+}
+
+.search-results p {
+    text-align: center;
+    color: #333;
+}
+
+.p {
+    text-align: center;
 }
