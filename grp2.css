@@ -307,23 +307,23 @@ a {
 /* Flexbox container for search bar */
 .header-container {
     display: flex;
-    justify-content: flex-end; /* Aligns the search bar to the right */
+    justify-content: flex-end;
     gap: 20px;
-    padding: 10px; /* Add padding for spacing */
+    padding: 10px;
 }
 
 .searchbar {
     display: flex;
     align-items: center;
-    background-color: #f0f0f0; /* Lighter background color */
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .searchbar input {
-    font-family: Arial, sans-serif; /* Choose a suitable font */
+    font-family: Arial, sans-serif;
     font-size: 14px;
     border: none;
     outline: none;
@@ -349,18 +349,33 @@ a {
 /* Styling for the search results section */
 .search-results {
     text-align: center;
-    padding: 10px;
 }
 
 .search-results h3 {
     color: #002c7a;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .search-results p {
-    text-align: center;
     color: #333;
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
+/* Customize the Existing Member text */
+.search-results strong {
+    color: #0056b3;
+}
+
+/* Customize the Role text */
+.search-results p:last-of-type {
+    font-weight: bold;
+    color: #006600;
+}
+
+/* Add padding and styling for better presentation */
 .p {
     text-align: center;
+    padding: 15px 0;
 }
