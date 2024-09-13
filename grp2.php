@@ -89,8 +89,25 @@ if (isset($_GET['query'])) {
             $results[] = $member;
         }
     }
-}
 
+    // Contact form processing
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+
+    $to = "your-email@example.com"; 
+    $subject = "New Contact Form Submission from $name";
+    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+
+    if (mail($to, $subject, $body)) {
+        $successMessage = "Message sent successfully!";
+    } else {
+        $errorMessage = "There was an error sending your message.";
+    }
+  }
+  
+}
 
 ?>
 <!DOCTYPE html>
@@ -108,7 +125,7 @@ if (isset($_GET['query'])) {
     <div class="logo-container">
         <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
     </div>
-          <!-- Container for search bar and result -->
+    <!-- Container for search bar and result -->
     <div class="header-container">
         <!-- Search Bar -->
         <div class="searchbar">
@@ -118,10 +135,9 @@ if (isset($_GET['query'])) {
             </form>
         </div>
     </div>
-
     <!-- Search Results -->
     <div class="search-results">
-       <?php
+    <?php
     if (isset($query) && !empty($query)) {
         if (count($results) > 0) {
             echo "<h3>Search Results:</h3>";
@@ -138,7 +154,6 @@ if (isset($_GET['query'])) {
     <!--Team-->
     <div class="team" id="Team">
     <h1>Group 2 <a href="#teams"><span>Our Team</span></a></h1>
-
         <div class="slideshow-container">
             <div class="slide">
                 <img src="Assets/slideshow1.png">
@@ -195,6 +210,31 @@ if (isset($_GET['query'])) {
             </div>
             <?php endforeach; ?>      
         </div>
+         <!-- Contact Us Form -->
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <?php if (isset($successMessage)): ?>
+            <p class="success-message"><?php echo $successMessage; ?></p>
+        <?php endif; ?>
+        <?php if (isset($errorMessage)): ?>
+            <p class="error-message"><?php echo $errorMessage; ?></p>
+        <?php endif; ?>
+        <form action="grp2.php#contact-form" method="POST" id="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
     </div>
     <!-- Button for scrolltotop-->
     <button onclick="scrollToTop()" id="backToTop">↑</button>
