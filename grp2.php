@@ -125,6 +125,22 @@ if (isset($_GET['query'])) {
     <div class="logo-container">
         <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
     </div>
+    <button id="contactBtn" class="contactBtn">Contact Us</button>
+    <div id="contactForm" class="contactForm hidden">
+        <div class="form-content">
+            <span class="close" id="closeBtn">&times;</span>
+            <h2>Contact Us</h2>
+            <form id="contactFormElement" action="submit.php" method="post">
+                <label for="name">Name:</label>
+                <input class="name" type="text" id="name" name="name" required><br>
+                <label type="email">Email:</label>
+                <input  class="email" type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea class="message" id="message" name="message" rows="5" required></textarea><br>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
     <!-- Container for search bar and result -->
     <div class="header-container">
         <!-- Search Bar -->
@@ -210,32 +226,6 @@ if (isset($_GET['query'])) {
             </div>
             <?php endforeach; ?>      
         </div>
-         <!-- Contact Us Form -->
-    <div class="contact-container">
-        <h2>Contact Us</h2>
-        <?php if (isset($successMessage)): ?>
-            <p class="success-message"><?php echo $successMessage; ?></p>
-        <?php endif; ?>
-        <?php if (isset($errorMessage)): ?>
-            <p class="error-message"><?php echo $errorMessage; ?></p>
-        <?php endif; ?>
-        <form action="grp2.php#contact-form" method="POST" id="contact-form">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea name="message" id="message" rows="5" required></textarea>
-            </div>
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
-    </div>
     <!-- Button for scrolltotop-->
     <button onclick="scrollToTop()" id="backToTop">↑</button>
 </body>
