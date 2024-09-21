@@ -79,3 +79,24 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1000); // Update the time every second
+setInterval(updateTime, 1000); // Update the time every second
+const contactBtn = document.getElementById('contactBtn');
+const contactForm = document.getElementById('contactForm');
+const closeBtn = document.getElementById('closeBtn');
+
+// Show contact form when click
+contactBtn.onclick = () => {
+    contactForm.style.display = 'flex';
+};
+
+// Close the form when close button
+closeBtn.onclick = () => {
+    contactForm.style.display = 'none';
+};
+
+// Close the form when outside of the form content
+window.onclick = (event) => {
+    if (event.target === contactForm) {
+        contactForm.style.display = 'none';
+    }
+};
