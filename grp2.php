@@ -199,7 +199,7 @@ if (isset($_GET['query'])) {
    <div class="profile">
     <img src="<?php echo $member['image']; ?>">
     <div class="info">
-     <h2 class="name"><?php echo $member['name']; ?></h2>
+     <h2 class="names"><?php echo $member['name']; ?></h2>
      <!-- Button for info open-->
      <button class="info-btn"
       onclick="showInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Info</button>

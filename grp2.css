@@ -174,7 +174,7 @@ a {
     top: 55%;
 }
 
-.team .team_box .profile .info .name {
+.team .team_box .profile .info .names {
     color: #002c7a;
     font-size: 19px;
     margin-bottom: 15px;
@@ -195,6 +195,7 @@ a {
     font-size: 1.2em;
     color: #002c7a;
     text-decoration: none;
+    margin-bottom: 2rem;
 }
 
 .team .team_box .profile .info .team_icon a:hover {
@@ -203,7 +204,7 @@ a {
 
 /* Button Styles */
 .info-btn {
-    background-color: #002c7a;
+    background-color: #ff5c5c;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -330,20 +331,6 @@ a {
     padding: 5px 10px;
     flex-grow: 1;
     color: #333;
-}
-
-.searchbar button {
-    background-color: #006400;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-}
-
-.searchbar button:hover {
-    background-color: #004d00;
 }
 
 /* Styling for the search results section */
