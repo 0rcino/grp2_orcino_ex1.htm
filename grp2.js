@@ -91,12 +91,45 @@ contactBtn.onclick = () => {
 
 // Close the form when close button
 closeBtn.onclick = () => {
+    // Hide the form
     contactForm.style.display = 'none';
+
+    // Reset the form (clears all input fields)
+    document.getElementById('contactFormElement').reset();
 };
 
-// Close the form when outside of the form content
+closeBtn.onclick = () => {
+    contactForm.style.display = 'none';
+    document.getElementById('contactFormElement').reset();
+    document.getElementById('responseMessage').innerHTML = '';
+};
+
+// Close the form when outside of the form content and reset the form
 window.onclick = (event) => {
     if (event.target === contactForm) {
         contactForm.style.display = 'none';
+        document.getElementById('contactFormElement').reset();
+        document.getElementById('responseMessage').innerHTML = '';
     }
 };
+
+// for name and email
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+
+nameInput.addEventListener('input', () => {
+    // Get the value from the name input
+    const nameValue = nameInput.value;
+
+    // Check if the name value is not empty
+    if (nameValue) {
+        // Set the value of the email input, placing the cursor at the end
+        emailInput.value = `${nameValue}@gmail.com`;
+        emailInput.setSelectionRange(
+            emailInput.value.length,
+            emailInput.value.length
+        );
+    } else {
+        emailInput.value = '';
+    }
+});
