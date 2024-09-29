@@ -3,6 +3,7 @@ function showInfo(containerId) {
     document.getElementById(containerId).style.display = 'block';
 }
 
+// code for onlick for exit button
 function hideInfo(containerId) {
     document.getElementById(containerId).style.display = 'none';
 }
@@ -33,7 +34,6 @@ function showSlides() {
 // for backtotop button
 let backToTopBtn = document.getElementById('backToTop');
 
-// Show the button when the user scrolls down 15px from the top of the document
 window.onscroll = function () {
     if (
         document.body.scrollTop > 15 ||
@@ -63,7 +63,7 @@ function updateTime() {
     };
     const currentTime = new Date().toLocaleTimeString('en-US', options);
 
-    const hour = new Date().getHours(); // Get the current hour
+    const hour = new Date().getHours();
     let greeting;
 
     if (hour >= 5 && hour < 12) {
@@ -78,23 +78,20 @@ function updateTime() {
         greeting + '! Current Time: ' + currentTime;
 }
 
-setInterval(updateTime, 1000); // Update the time every second
-setInterval(updateTime, 1000); // Update the time every second
+setInterval(updateTime, 1000);
+setInterval(updateTime, 1000);
 const contactBtn = document.getElementById('contactBtn');
 const contactForm = document.getElementById('contactForm');
 const closeBtn = document.getElementById('closeBtn');
 
-// Show contact form when click
 contactBtn.onclick = () => {
     contactForm.style.display = 'flex';
 };
 
 // Close the form when close button
 closeBtn.onclick = () => {
-    // Hide the form
     contactForm.style.display = 'none';
 
-    // Reset the form (clears all input fields)
     document.getElementById('contactFormElement').reset();
 };
 
@@ -118,12 +115,9 @@ const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 
 nameInput.addEventListener('input', () => {
-    // Get the value from the name input
     const nameValue = nameInput.value;
 
-    // Check if the name value is not empty
     if (nameValue) {
-        // Set the value of the email input, placing the cursor at the end
         emailInput.value = `${nameValue}@gmail.com`;
         emailInput.setSelectionRange(
             emailInput.value.length,
@@ -133,20 +127,21 @@ nameInput.addEventListener('input', () => {
         emailInput.value = '';
     }
 });
-
+// livesearch result
 function showResult(str) {
     if (str.length == 0) {
-      document.getElementById("livesearch").innerHTML = "";
-      document.getElementById("livesearch").style.border = "0px";
-      return;
+        document.getElementById('livesearch').innerHTML = '';
+        document.getElementById('livesearch').style.border = '0px';
+        return;
     }
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("livesearch").innerHTML = this.responseText;
-        document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
-      }
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('livesearch').innerHTML = this.responseText;
+            document.getElementById('livesearch').style.border =
+                '1px solid #A5ACB2';
+        }
     };
-    xmlhttp.open("GET", "livesearch.php?q=" + str, true);
+    xmlhttp.open('GET', 'livesearch.php?q=' + str, true);
     xmlhttp.send();
-  }
+}

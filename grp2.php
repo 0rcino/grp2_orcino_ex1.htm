@@ -148,17 +148,15 @@ if (isset($_GET['query'])) {
   <!-- Search Bar -->
   <div class="searchbar">
    <form action="grp2.php" method="GET">
-   <input type="text" name="query" id="query" onkeyup="showResult(this.value)" placeholder="Name Search">
+    <input type="text" name="query" id="query" onkeyup="showResult(this.value)" placeholder="Name Search">
     <input type="submit" value="Search">
    </form>
   </div>
  </div>
- <!-- Search Results -->
- <!-- Live Search Results -->
-<div id="livesearch" class="search-results"></div>
-
- <div class="search-results">
-  <?php
+ <!-- Search and livesearch Result -->
+ <div id="livesearch" class="search-results">
+  <div class="search-results">
+   <?php
     if (isset($query) && !empty($query)) {
         if (count($results) > 0) {
             echo "<h3>Search Results:</h3>";
@@ -171,6 +169,7 @@ if (isset($_GET['query'])) {
         }
     }
     ?>
+  </div>
  </div>
  <!--Team-->
  <div class="team" id="Team">

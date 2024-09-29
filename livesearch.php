@@ -1,5 +1,4 @@
 <?php
-// Simulate team members' data
 $teamMembers = [
     [
         'name' => 'Allen Jefferson C. Orcino',
@@ -57,7 +56,6 @@ $teamMembers = [
         'linkedin' => 'http://www.linkedin.com/in/ian-adriann-porciuncula-4126b9322',
         'coursera' => 'https://www.coursera.org/user/685d395df259e193d48f1b3eccdba104'
     ],
-    // profile 5 
     [
         'name' => 'Lester Plandaño',
         'role' => 'Member',
@@ -72,30 +70,31 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/lester-planda%C3%B1o-6b86bb322?trk=contact-info',
         'coursera' => 'https://www.coursera.org/user/fba21b844e5e2a0e91abcb31449b73f1'
     ],
+    
 ];
 
-// Check if a query is sent
 if (isset($_GET['q']) && !empty($_GET['q'])) {
     $query = htmlspecialchars($_GET['q']);
 
-    // Filter members based on the query
     $results = array_filter($teamMembers, function($member) use ($query) {
         return stripos($member['name'], $query) !== false;
     });
 
     if (count($results) > 0) {
         foreach ($results as $member) {
-            echo "<div style='border: 1px solid #A5ACB2; padding: 10px; margin: 10px 0;'>";
-            echo "<img src='" . htmlspecialchars($member['image']) . "' alt='" . htmlspecialchars($member['name']) . "' style='width:100px;height:100px;'>";
+            echo "<div style='border: 1px solid #A5ACB2; padding: 10px;'>";
+            echo "<img src='" . htmlspecialchars($member['image']) . "' alt='" . htmlspecialchars($member['name']) . "' style='width:100px;height:100px; margin-top: 10px'>";
             echo "<p><strong>Name:</strong> " . htmlspecialchars($member['name']) . "</p>";
             echo "<p><strong>Role:</strong> " . htmlspecialchars($member['role']) . "</p>";
             echo "<p><strong>Course:</strong> " . htmlspecialchars($member['course']) . "</p>";
             echo "<p><strong>Contact:</strong> " . htmlspecialchars($member['contact']) . "</p>";
             echo "<p><strong>Address:</strong> " . htmlspecialchars($member['address']) . "</p>";
-            echo "<p><a href='" . htmlspecialchars($member['github']) . "'>GitHub</a> | ";
-            echo "<a href='" . htmlspecialchars($member['facebook']) . "'>Facebook</a> | ";
-            echo "<a href='" . htmlspecialchars($member['linkedin']) . "'>LinkedIn</a> | ";
-            echo "<a href='" . htmlspecialchars($member['coursera']) . "'>Coursera</a></p>";
+            echo "<p style='text-align: center;'>";  
+            echo "<a href='" . htmlspecialchars($member['github']) . "' target='_blank' style='margin-right: 10px;'><i class='fab fa-github'></i></a> ";
+            echo "<a href='" . htmlspecialchars($member['facebook']) . "' target='_blank' style='margin-right: 10px;'><i class='fab fa-facebook'></i></a> ";
+            echo "<a href='" . htmlspecialchars($member['linkedin']) . "' target='_blank' style='margin-right: 10px;'><i class='fab fa-linkedin'></i></a> ";
+            echo "<a href='" . htmlspecialchars($member['coursera']) . "' target='_blank'><i class='fas fa-copyright'></i></a>";
+            echo "</p>";
             echo "</div>";
         }
     } else {
@@ -103,3 +102,5 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
     }
 }
 ?>
+
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
