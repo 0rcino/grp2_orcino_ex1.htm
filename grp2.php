@@ -109,6 +109,7 @@ if (isset($_GET['query'])) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -234,6 +235,15 @@ if (isset($_GET['query'])) {
   </div>
   <!-- Button for scrolltotop-->
   <button onclick="scrollToTop()" id="backToTop">↑</button>
+  <!-- Footer -->
+  <footer class="footer">
+   <div class="footer-content">
+    <p>
+     <i class="fas fa-copyright"></i> 2024 Group 2. All rights reserved.
+    </p>
+   </div>
+  </footer>
+
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <script src="grp2.js"></script>
