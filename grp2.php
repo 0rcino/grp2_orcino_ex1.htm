@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+include('connect.php');
 // for information for Team member
 $teamMembers = [
     // profile 1
@@ -78,7 +81,26 @@ $teamMembers = [
     ],
     
 ];
-    // Search functionality
+// Check if the user is logged in and greet them
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    $query = mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
+    if ($row = mysqli_fetch_array($query)) {
+        $firstName = $row['firstName'];
+        $lastName = $row['lastName'];
+        $fullName = $firstName . ' ' . $lastName;
+
+        // Only display the alert if this is the first time the user logs in
+        if (!isset($_SESSION['greeted'])) {
+            echo "<script>
+                    alert('Hello, $fullName!');
+                  </script>";
+            $_SESSION['greeted'] = true; // Set a session variable to prevent the alert from appearing again
+        }
+    }
+}
+
+// Search functionality
 if (isset($_GET['query'])) {
     $query = htmlspecialchars($_GET['query']);
     $results = [];
@@ -89,9 +111,10 @@ if (isset($_GET['query'])) {
             $results[] = $member;
         }
     }
+}
 
-    // Contact form processing
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Contact form processing
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
@@ -105,9 +128,7 @@ if (isset($_GET['query'])) {
     } else {
         $errorMessage = "There was an error sending your message.";
     }
-  }
 }
-
 ?>
 <!--Header-->
 <?php
@@ -123,22 +144,43 @@ if (isset($_GET['query'])) {
   </form>
  </div>
 </div>
+
+<div class="container">
+ <a href="logout.php" class="logoutBtn">Logout</a>
+</div>
+
 <!-- Search and livesearch Result -->
 <div id="livesearch" class="search-results">
  <div class="search-results">
   <?php
-    if (isset($query) && !empty($query)) {
-        if (count($results) > 0) {
-            echo "<h3>Search Results:</h3>";
-            foreach ($results as $result) {
-                echo "<p><strong>Existing Member:</strong> " . htmlspecialchars($result['name']) . "</p>";
-                echo "<p>Role: " . htmlspecialchars($result['role']) . "</p>";
+    // Initialize $results as an empty array to avoid undefined variable warning
+    $results = [];
+
+    // Check if a query is provided and then perform the search
+    if (isset($_GET['query'])) {
+        $query = htmlspecialchars($_GET['query']);
+
+        // Perform the search (make sure you replace $teamMembers with your actual array or database query)
+        foreach ($teamMembers as $member) {
+            if (stripos($member['name'], $query) !== false) {
+                $results[] = $member;
             }
-        } else {
-            echo "<p>Not Existing Member: '" . htmlspecialchars($query) . "'.</p>";
+        }
+
+        // Display the results
+        if (!empty($query)) {
+            if (count($results) > 0) {
+                echo "<h3>Search Results:</h3>";
+                foreach ($results as $result) {
+                    echo "<p><strong>Existing Member:</strong> " . htmlspecialchars($result['name']) . "</p>";
+                    echo "<p>Role: " . htmlspecialchars($result['role']) . "</p>";
+                }
+            } else {
+                echo "<p>Not Existing Member: '" . htmlspecialchars($query) . "'.</p>";
+            }
         }
     }
-    ?>
+  ?>
  </div>
 </div>
 <!--Team-->
@@ -165,7 +207,7 @@ if (isset($_GET['query'])) {
   <p id="realTime"><?php echo $greeting; ?>! Current Time: <?php echo $currentTime; ?></p>
  </div>
  <!--Team Container-->
- <h1 style="margin-top: 10rem; color: #ff5c5c;" id="teams">My Team</h1>
+ <h1 style="margin-top: 10rem; color: rgb(125, 125, 235);" id="teams">My Team</h1>
  <div class="team_box">
   <?php foreach ($teamMembers as $member): ?>
   <div class="profile">
