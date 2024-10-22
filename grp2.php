@@ -2,7 +2,12 @@
 
 session_start();
 include('connect.php');
-// for information for Team member
+
+$username = isset($_COOKIE['userName']) ? $_COOKIE['userName'] : '';
+if ($username) {
+    echo "<script>alert('Welcome back, " . htmlspecialchars($username) . "!');</script>";
+}
+
 $teamMembers = [
     // profile 1
     [
@@ -81,31 +86,11 @@ $teamMembers = [
     ],
     
 ];
-// Check if the user is logged in and greet them
-if (isset($_SESSION['email'])) {
-    $email = $_SESSION['email'];
-    $query = mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
-    if ($row = mysqli_fetch_array($query)) {
-        $firstName = $row['firstName'];
-        $lastName = $row['lastName'];
-        $fullName = $firstName . ' ' . $lastName;
 
-        // Only display the alert if this is the first time the user logs in
-        if (!isset($_SESSION['greeted'])) {
-            echo "<script>
-                    alert('Hello, $fullName!');
-                  </script>";
-            $_SESSION['greeted'] = true; // Set a session variable to prevent the alert from appearing again
-        }
-    }
-}
-
-// Search functionality
 if (isset($_GET['query'])) {
     $query = htmlspecialchars($_GET['query']);
     $results = [];
 
-    // Search through the team members
     foreach ($teamMembers as $member) {
         if (stripos($member['name'], $query) !== false) {
             $results[] = $member;
@@ -113,7 +98,6 @@ if (isset($_GET['query'])) {
     }
 }
 
-// Contact form processing
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
@@ -130,13 +114,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<!--Header-->
 <?php
     include 'header.php';
 ?>
-<!-- Container for search bar and result -->
 <div class="header-container">
- <!-- Search Bar -->
  <div class="searchbar">
   <form action="grp2.php" method="GET">
    <input type="text" name="query" id="query" onkeyup="showResult(this.value)" placeholder="Name Search">
@@ -144,30 +125,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </form>
  </div>
 </div>
-
-<div class="container">
- <a href="logout.php" class="logoutBtn">Logout</a>
-</div>
-
-<!-- Search and livesearch Result -->
 <div id="livesearch" class="search-results">
  <div class="search-results">
   <?php
-    // Initialize $results as an empty array to avoid undefined variable warning
     $results = [];
-
-    // Check if a query is provided and then perform the search
     if (isset($_GET['query'])) {
         $query = htmlspecialchars($_GET['query']);
-
-        // Perform the search (make sure you replace $teamMembers with your actual array or database query)
         foreach ($teamMembers as $member) {
             if (stripos($member['name'], $query) !== false) {
                 $results[] = $member;
             }
         }
-
-        // Display the results
         if (!empty($query)) {
             if (count($results) > 0) {
                 echo "<h3>Search Results:</h3>";
@@ -183,7 +151,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ?>
  </div>
 </div>
-<!--Team-->
 <div class="team" id="Team">
  <h1>Group 2 <a href="#teams"><span>Our Team</span></a></h1>
  <div class="slideshow-container">
@@ -202,11 +169,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    <span class="dot"></span>
   </div>
  </div>
- <!-- Real-time clock -->
  <div class="time-container">
   <p id="realTime"><?php echo $greeting; ?>! Current Time: <?php echo $currentTime; ?></p>
  </div>
- <!--Team Container-->
  <h1 style="margin-top: 10rem; color: rgb(125, 125, 235);" id="teams">My Team</h1>
  <div class="team_box">
   <?php foreach ($teamMembers as $member): ?>
@@ -214,14 +179,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    <img src="<?php echo $member['image']; ?>">
    <div class="info">
     <h2 class="names"><?php echo $member['name']; ?></h2>
-    <!-- Button for info open-->
     <button class="info-btn"
      onclick="showInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Info</button>
     <div id="info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>" class="info-container">
      <header>
       <h1>Information</h1>
      </header>
-     <!--Information about Team Member-->
      <h2><?php echo $member['name']; ?></h2>
      <h4><?php echo $member['role']; ?></h4>
      <p>Course: <?php echo $member['course']; ?></p>
@@ -229,11 +192,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <p>Gender: <?php echo $member ['gender']; ?></p>
      <p>Contact Number: <?php echo $member['contact']; ?></p>
      <p>Address: <?php echo $member['address']; ?></p>
-     <!-- Button for info exit-->
      <button class="exit-btn"
       onclick="hideInfo('info-container-<?php echo strtolower(str_replace(' ', '-', $member['name'])); ?>')">Exit</button>
     </div>
-    <!--Team icon and social media links-->
     <div class="team_icon">
      <a class="fa-brands fa-github" href="<?php echo $member['github']; ?>" target="_blank"></a>
      <a class="fa-brands fa-facebook" href="<?php echo $member['facebook']; ?>" target="_blank"></a>
@@ -244,7 +205,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
   <?php endforeach; ?>
  </div>
- <!--Footer-->
  <?php
     include 'footer.php';
 ?>

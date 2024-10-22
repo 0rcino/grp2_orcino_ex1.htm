@@ -4,7 +4,7 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Group 2 logIn</title>
+ <title>Group 2 log In</title>
  <link rel="icon" href="Assets/logo.jpg" type="image/png">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  <link rel="stylesheet" href="stye.css">
@@ -40,15 +40,18 @@
    ----------or--------
   </p>
   <div class="icons">
-   <i class="fab fa-google"></i>
-   <i class="fab fa-facebook"></i>
+   <a href="https://accounts.google.com/ServiceLogin" target="_blank">
+    <i class="fab fa-google"></i>
+   </a>
+   <a href="https://www.facebook.com/login" target="_blank">
+    <i class="fab fa-facebook"></i>
+   </a>
   </div>
   <div class="links">
    <p>Already Have Account ?</p>
    <button id="signInButton">Sign In</button>
   </div>
  </div>
-
  <div class="container" id="signIn">
   <img src="Assets/logo.jpg" alt="Sign In Image" class="sign-in-image">
   <h1 class="form-title">Sign In</h1>
@@ -72,8 +75,12 @@
    ----------or--------
   </p>
   <div class="icons">
-   <i class="fab fa-google"></i>
-   <i class="fab fa-facebook"></i>
+   <a href="https://accounts.google.com/ServiceLogin" target="_blank">
+    <i class="fab fa-google"></i>
+   </a>
+   <a href="https://www.facebook.com/login" target="_blank">
+    <i class="fab fa-facebook"></i>
+   </a>
   </div>
   <div class="links">
    <p>Don't have account yet?</p>

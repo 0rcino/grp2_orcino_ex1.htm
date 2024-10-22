@@ -322,7 +322,7 @@ a {
     color: #333;
 }
 .searchbar input[type='submit'] {
-    background-color: #0ad80a; /* Green submit button */
+    background-color: #0ad80a; 
     color: white;
     padding: 8px 12px;
     border: none;
@@ -365,16 +365,32 @@ a {
     text-align: center;
     padding: 15px 0;
 }
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; 
+    position: relative;
+    right: 20px; 
+}
+
+.logoutBtn,
 #contactBtn {
-    margin-top: 5.1rem;
-    padding: 10px 20px;
-    position: absolute;
-    right: 8rem;
     background-color: rgb(125, 125, 235);
     color: white;
     border: none;
-    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.logoutBtn:hover {
+    background-color: #e64545;
+}
+
+#contactBtn:hover {
+    background-color: #e64545;
 }
 
 .contactForm {
@@ -455,7 +471,7 @@ button[type='submit'] {
 .hidden {
     display: none;
 }
-/* Footer Styling */
+
 .footer {
     margin-top: 4rem;
     background-color: #002c7a;
@@ -478,27 +494,4 @@ button[type='submit'] {
     font-size: 14px;
     margin: 0;
     color: #f3f3f3;
-}
-/* Logout Button */
-.container {
-    display: flex;
-    justify-content: flex-end;
-    padding: 1rem;
-}
-
-.logoutBtn {
-    background-color: rgb(125, 125, 235);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    position: absolute;
-    text-decoration: none;
-
-    transition: background-color 0.3s ease;
-}
-
-.logoutBtn:hover {
-    background-color: #e64545;
 }

@@ -1,14 +1,11 @@
-// code for onclick for info button
 function showInfo(containerId) {
     document.getElementById(containerId).style.display = 'block';
 }
 
-// code for onlick for exit button
 function hideInfo(containerId) {
     document.getElementById(containerId).style.display = 'none';
 }
 
-// Slideshow
 var slideIndex = 0;
 showSlides();
 
@@ -31,7 +28,6 @@ function showSlides() {
     setTimeout(showSlides, 2000);
 }
 
-// for backtotop button
 let backToTopBtn = document.getElementById('backToTop');
 
 window.onscroll = function () {
@@ -45,14 +41,13 @@ window.onscroll = function () {
     }
 };
 
-// Function to scroll to the top of the document
 function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth',
     });
 }
-// Function to update the time and greeting
+
 function updateTime() {
     const options = {
         timeZone: 'Asia/Manila',
@@ -88,7 +83,6 @@ contactBtn.onclick = () => {
     contactForm.style.display = 'flex';
 };
 
-// Close the form when close button
 closeBtn.onclick = () => {
     contactForm.style.display = 'none';
 
@@ -101,7 +95,6 @@ closeBtn.onclick = () => {
     document.getElementById('responseMessage').innerHTML = '';
 };
 
-// Close the form when outside of the form content and reset the form
 window.onclick = (event) => {
     if (event.target === contactForm) {
         contactForm.style.display = 'none';
@@ -110,7 +103,6 @@ window.onclick = (event) => {
     }
 };
 
-// for name and email
 const nameInput = document.getElementById('name');
 const emailInput = document.getElementById('email');
 
@@ -128,7 +120,6 @@ nameInput.addEventListener('input', () => {
     }
 });
 
-// livesearch result ajax
 function showResult(str) {
     if (str.length == 0) {
         document.getElementById('livesearch').innerHTML = '';
@@ -160,3 +151,11 @@ function showResult(str) {
     xhr.open('GET', 'livesearch.php?q=' + str, true);
     xhr.send();
 }
+function getCookie(username) {
+    let match = document.cookie.match(
+        new RegExp('(^| )' + username + '=([^;]+)')
+    );
+    return match ? match[2] : null;
+}
+
+

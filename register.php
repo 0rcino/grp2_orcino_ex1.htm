@@ -18,6 +18,12 @@ if(isset($_POST['signUp'])){
         $insertQuery="INSERT INTO users(firstName,lastName,email,password)
                        VALUES ('$firstName','$lastName','$email','$password')";
             if($conn->query($insertQuery)==TRUE){
+                
+            
+            setcookie('userEmail', $email, time() + (86400 * 30), "/"); 
+          
+              setcookie('userName', "{$row['firstName']} {$row['lastName']}", time() + (86400 * 30), "/");
+                
                 header("location: index.php");
             }
             else{
@@ -39,6 +45,12 @@ if(isset($_POST['signIn'])){
     session_start();
     $row=$result->fetch_assoc();
     $_SESSION['email']=$row['email'];
+
+    setcookie('userEmail', $email, time() + (86400 * 30), "/"); 
+    setcookie('userName', "{$row['firstName']} {$row['lastName']}", time() + (86400 * 30), "/"); 
+
+   echo "Cookie set for userName: " . htmlspecialchars("{$row['firstName']} {$row['lastName']}");
+
     header("Location: grp2.php");
     exit();
    }

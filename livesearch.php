@@ -1,5 +1,4 @@
 <?php
-// ajax 
 $teamMembers = [
     [
         'name' => 'Allen Jefferson C. Orcino',
