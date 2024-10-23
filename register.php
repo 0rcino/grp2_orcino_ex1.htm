@@ -8,7 +8,7 @@ function validateInput($data) {
     return $data;
 }
 
-if(isset($_POST['signUp'])){
+if (isset($_POST['signUp'])) {
     $firstName = validateInput($_POST['fName']);
     $lastName = validateInput($_POST['lName']);
     $email = validateInput($_POST['email']);
@@ -24,15 +24,18 @@ if(isset($_POST['signUp'])){
         exit();
     }
 
-    $password = md5($password);
+    $hashedPassword = md5($password); 
 
     $checkEmail = "SELECT * FROM users WHERE email='$email'";
     $result = $conn->query($checkEmail);
-    if($result->num_rows > 0){
+
+    if ($result->num_rows > 0) {
         echo "Email Address Already Exists!";
     } else {
+        
         $insertQuery = "INSERT INTO users (firstName, lastName, email, password)
-                        VALUES ('$firstName', '$lastName', '$email', '$password')";
+                        VALUES ('$firstName', '$lastName', '$email', '$hashedPassword')";
+
         if ($conn->query($insertQuery) === TRUE) {
             setcookie('userEmail', $email, time() + (86400 * 30), "/"); 
             setcookie('userName', "$firstName $lastName", time() + (86400 * 30), "/");
@@ -43,15 +46,16 @@ if(isset($_POST['signUp'])){
     }
 }
 
-if(isset($_POST['signIn'])){
+if (isset($_POST['signIn'])) {
     $email = validateInput($_POST['email']);
     $password = validateInput($_POST['password']);
 
-    $password = md5($password);
+    $hashedPassword = md5($password); 
 
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$hashedPassword'";
     $result = $conn->query($sql);
-    if($result->num_rows > 0){
+
+    if ($result->num_rows > 0) {
         session_start();
         $row = $result->fetch_assoc();
         $_SESSION['email'] = $row['email'];
