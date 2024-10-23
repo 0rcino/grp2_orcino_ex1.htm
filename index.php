@@ -13,7 +13,7 @@
 <body>
  <div class="container" id="signup" style="display:none;">
   <h1 class="form-title">Register</h1>
-  <form method="post" action="register.php">
+  <form method="post" action="register.php" onsubmit="return validateSignUp()">
    <div class="input-group">
     <i class="fas fa-user"></i>
     <input type="text" name="fName" id="fName" placeholder="First Name" required>
@@ -26,12 +26,12 @@
    </div>
    <div class="input-group">
     <i class="fas fa-envelope"></i>
-    <input type="email" name="email" id="email" placeholder="Email" required>
+    <input type="email" name="email" id="signupEmail" placeholder="Email" required>
     <label for="email">Email</label>
    </div>
    <div class="input-group">
     <i class="fas fa-lock"></i>
-    <input type="password" name="password" id="password" placeholder="Password" required>
+    <input type="password" name="password" id="signupPassword" placeholder="Password" required>
     <label for="password">Password</label>
    </div>
    <input type="submit" class="btn" value="Sign Up" name="signUp">
@@ -55,15 +55,15 @@
  <div class="container" id="signIn">
   <img src="Assets/logo.jpg" alt="Sign In Image" class="sign-in-image">
   <h1 class="form-title">Sign In</h1>
-  <form method="post" action="register.php">
+  <form method="post" action="register.php" onsubmit="return validateSignIn()">
    <div class="input-group">
     <i class="fas fa-envelope"></i>
-    <input type="email" name="email" id="email" placeholder="Email" required>
+    <input type="email" name="email" id="signinEmail" placeholder="Email" required>
     <label for="email">Email</label>
    </div>
    <div class="input-group">
     <i class="fas fa-lock"></i>
-    <input type="password" name="password" id="password" placeholder="Password" required>
+    <input type="password" name="password" id="signinPassword" placeholder="Password" required>
     <label for="password">Password</label>
    </div>
    <p class="recover">
