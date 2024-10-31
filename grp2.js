@@ -157,5 +157,9 @@ function getCookie(username) {
     );
     return match ? match[2] : null;
 }
-
-
+function confirmPrintTeamData() {
+    const confirmPrint = confirm('Print data of team? Yes or No');
+    if (confirmPrint) {
+        window.location.href = 'print_team_data.php';
+    }
+}

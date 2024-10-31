@@ -151,6 +151,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ?>
  </div>
 </div>
+<button onclick="confirmPrintTeamData()" class="team-data-btn">Team Data</button>
+
+
 <div class="team" id="Team">
  <h1>Group 2 <a href="#teams"><span>Our Team</span></a></h1>
  <div class="slideshow-container">
