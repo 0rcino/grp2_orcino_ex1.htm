@@ -117,43 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php
     include 'header.php';
 ?>
-<div class="header-container">
- <div class="searchbar">
-  <form action="grp2.php" method="GET">
-   <input type="text" name="query" id="query" onkeyup="showResult(this.value)" placeholder="Name Search">
-   <input type="submit" value="Search">
-  </form>
- </div>
-</div>
-<div id="livesearch" class="search-results">
- <div class="search-results">
-  <?php
-    $results = [];
-    if (isset($_GET['query'])) {
-        $query = htmlspecialchars($_GET['query']);
-        foreach ($teamMembers as $member) {
-            if (stripos($member['name'], $query) !== false) {
-                $results[] = $member;
-            }
-        }
-        if (!empty($query)) {
-            if (count($results) > 0) {
-                echo "<h3>Search Results:</h3>";
-                foreach ($results as $result) {
-                    echo "<p><strong>Existing Member:</strong> " . htmlspecialchars($result['name']) . "</p>";
-                    echo "<p>Role: " . htmlspecialchars($result['role']) . "</p>";
-                }
-            } else {
-                echo "<p>Not Existing Member: '" . htmlspecialchars($query) . "'.</p>";
-            }
-        }
-    }
-  ?>
- </div>
-</div>
-<button onclick="confirmPrintTeamData()" class="team-data-btn">Team Data</button>
-
-
 <div class="team" id="Team">
  <h1>Group 2 <a href="#teams"><span>Our Team</span></a></h1>
  <div class="slideshow-container">
@@ -208,6 +171,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
   <?php endforeach; ?>
  </div>
+ <section class="contact" id="contact">
+  <h2>Contact <span>Us</span></h2>
+  <div class="contact-container">
+   <img src="Assets/logo.jpg" alt="Contact Image" class="contact-image">
+
+   <form id="contactFormElement" action="submit.php" method="post" onsubmit="showAlert(event)">
+    <div class="input-group">
+     <div class="input-box">
+      <input type="text" id="name" name="name" required placeholder="Full Name">
+      <input type="email" id="email" name="email" required placeholder="Email">
+     </div>
+    </div>
+    <div class="input-box">
+     <input id="number" name="number" type="number" placeholder="Phone Number">
+     <input type="text" name="subject" placeholder="Subject">
+    </div>
+    <div class="input-group-2">
+     <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+     <input type="submit" value="Send Message" class="btn3">
+    </div>
+   </form>
+  </div>
+ </section>
+
+
  <?php
     include 'footer.php';
 ?>

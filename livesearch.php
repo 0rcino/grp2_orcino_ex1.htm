@@ -82,7 +82,7 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 
     if (count($results) > 0) {
         foreach ($results as $member) {
-            echo "<div style='border: 1px solid #A5ACB2; padding: 10px;'>";
+            echo "<div style='border: 1px solid rgb(125, 125, 235); padding: 10px; margin-top: 50px'>";
             echo "<img src='" . htmlspecialchars($member['image']) . "' alt='" . htmlspecialchars($member['name']) . "' style='width:100px;height:100px; margin-top: 10px'>";
             echo "<p><strong>Name:</strong> " . htmlspecialchars($member['name']) . "</p>";
             echo "<p><strong>Role:</strong> " . htmlspecialchars($member['role']) . "</p>";

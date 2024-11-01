@@ -302,11 +302,11 @@ a {
     border-radius: 50%;
     font-size: 18px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 #backToTop:hover {
-    transform: scale(1.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     border: 3px solid rgb(125, 125, 235);
     box-shadow: 0 0 15px rgb(125, 125, 235);
 }
@@ -319,7 +319,6 @@ a {
 /* Header Container Styling */
 .header-container {
     display: flex;
-    margin-top: 1.5rem;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
@@ -330,13 +329,13 @@ a {
 /* Logo Styling */
 .logo img {
     height: 60px;
+    border-radius: 10px;
 }
 
 /* Search Bar Styling */
 .searchbar {
     display: flex;
     align-items: center;
-    background-color: #e6f7e6;
     border-radius: 5px;
     padding: 10px;
 }
@@ -360,8 +359,8 @@ a {
 .searchbar input[type='submit'] {
     background-color: #0ad80a;
     color: white;
-    padding: 10px 15px;
-    margin-left: 10px;
+    padding: 12px 16px;
+    margin-left: 3px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -416,8 +415,33 @@ a {
     background-color: #f8d7da;
     color: #a71d2a;
 }
+/* Live Search Results Styling */
+.search-results {
+    text-align: center;
+    padding: 10px;
+}
 
-/*Contact Page*/
+.search-results h3 {
+    color: #002c7a;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.search-results p {
+    color: #333;
+    font-size: 2.1rem;
+    line-height: 2.4;
+}
+
+.search-results strong {
+    color: #002c7a;
+}
+
+.search-results p:last-of-type {
+    font-weight: bold;
+    color: #006400;
+}
+/* Contact Page */
 .contact {
     margin-top: 3rem;
     background-color: rgb(215, 211, 211);
@@ -430,14 +454,30 @@ a {
     color: rgb(125, 125, 235);
 }
 
-/* Contact Form Styling */
-.contact form {
+/* Container for Image and Form */
+.contact-container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3rem;
     margin: 5rem auto;
-    text-align: center;
+    max-width: 1200px;
+}
+
+/* Image Styling */
+.contact-image {
+    width: 350px;
+    height: auto;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Form Styling */
+.contact form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .contact form .input-box {
@@ -451,7 +491,7 @@ a {
     width: 100%;
     padding: 1.5rem;
     font-size: 1.8rem;
-    color: black\\;
+    color: black;
     background: rgb(255, 255, 255);
     border-radius: 2rem;
     border: 2px solid rgb(125, 125, 235);
@@ -467,6 +507,7 @@ a {
     border-radius: 4rem;
     font-size: 1.6rem;
     color: white;
+    margin-left: 3px;
     letter-spacing: 0.3rem;
     font-weight: 600;
     border: 2px solid rgb(125, 125, 235);
@@ -476,7 +517,7 @@ a {
 
 /* Hover effect for submit button */
 .contact form .btn3:hover {
-    transform: scale3d(1.3);
+    transform: scale(1.1);
     background-color: rgb(125, 125, 235);
     color: black;
     box-shadow: 0 0 25px rgb(125, 125, 235);
@@ -556,7 +597,7 @@ a {
 .team-data-btn {
     position: absolute;
     right: 20px;
-    top: 130px;
+    top: 90px;
     padding: 10px 20px;
     background-color: rgb(125, 125, 235);
     color: white;
