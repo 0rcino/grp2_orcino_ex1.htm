@@ -27,33 +27,62 @@
 </head>
 
 <body>
- <div class="logo-container">
-  <img src="Assets/logo.jpg" alt="Group Logo" class="logo">
- </div>
 
- <div class="button-container">
-  <button id="contactBtn" class="contactBtn">Contact Us</button>
-  <a href="#" class="logoutBtn" onclick="confirmLogout(event)">Logout</a> <!-- Modified to use JavaScript -->
- </div>
+ <div class="header-container">
+  <!-- Logo on the left side -->
+  <div class="logo">
+   <img src="Assets/logo.jpg" alt="Logo" />
+  </div>
 
- <div id="contactForm" class="contactForm hidden">
-  <div class="form-content">
-   <span class="close" id="closeBtn">&times;</span>
-   <h2>Contact Us</h2>
-   <form id="contactFormElement" action="submit.php" method="post" onsubmit="showAlert(event)">
-    <label for="name">Name:</label>
-    <input class="name" type="text" id="name" name="name" required><br>
-
-    <label for="email">Email:</label>
-    <input class="email" type="email" id="email" name="email" required><br>
-
-    <label for="message">Message:</label><br>
-    <textarea class="message" id="message" name="message" rows="5" required></textarea><br>
-
-    <button type="submit">Send</button>
+  <!-- Centered search bar -->
+  <div class="searchbar">
+   <form action="grp2.php" method="GET">
+    <input type="text" name="query" id="query" onkeyup="showResult(this.value)" placeholder="Name Search">
+    <input type="submit" value="Search">
    </form>
   </div>
+
+  <!-- Navigation links and logout button on the right side -->
+  <div class="navbar-links">
+   <a href="#Team">Home</a>
+   <a href="#teams">Team</a>
+   <a href="#contact">Contact Us</a>
+   <a href="#" class="logoutBtn" onclick="confirmLogout(event)">
+    <i class="fas fa-sign-out-alt"></i> Logout
+   </a>
+  </div>
  </div>
+
+ <!-- Live search results container -->
+ <div id="livesearch" class="search-results">
+  <div class="search-results">
+   <?php
+      $results = [];
+      if (isset($_GET['query'])) {
+        $query = htmlspecialchars($_GET['query']);
+        foreach ($teamMembers as $member) {
+          if (stripos($member['name'], $query) !== false) {
+            $results[] = $member;
+          }
+        }
+        if (!empty($query)) {
+          if (count($results) > 0) {
+            echo "<h3>Search Results:</h3>";
+            foreach ($results as $result) {
+              echo "<p><strong>Existing Member:</strong> " . htmlspecialchars($result['name']) . "</p>";
+              echo "<p>Role: " . htmlspecialchars($result['role']) . "</p>";
+            }
+          } else {
+            echo "<p>Not Existing Member: '" . htmlspecialchars($query) . "'.</p>";
+          }
+        }
+      }
+    ?>
+  </div>
+ </div>
+
+ <button onclick="confirmPrintTeamData()" class="team-data-btn">Team Data</button>
+
 </body>
 
 </html>
