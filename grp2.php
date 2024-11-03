@@ -9,7 +9,6 @@ if ($username) {
 }
 
 $teamMembers = [
-    // profile 1
     [
         'name' => 'Allen Jefferson C. Orcino',
         'role' => 'Assistant Leader',
@@ -24,7 +23,6 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/allenjefferson-orcino-b82924322/?trk=opento_sprofile_topcard',
         'coursera' => 'https://www.coursera.org/user/fba21b844e5e2a0e91abcb31449b73f1'
     ],
-    // profile 2
     [
         'name' => 'Jhonrey Kyle C. Lugon',
         'role' => 'Leader',
@@ -39,7 +37,6 @@ $teamMembers = [
         'linkedin' => 'http://www.linkedin.com/in/jhonreykylelugon',
         'coursera' => 'https://www.coursera.org/learner/kyle'
     ],
-    // profile 3
     [
         'name' => 'Hannah Grace Traya',
         'role' => 'Member',
@@ -54,7 +51,6 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/hannah-grace-traya-2a4944322',
         'coursera' => 'https://www.coursera.org/learner/hannah-grace-traya-8888'
     ],
-    // profile 4
     [
         'name' => 'Ian Adrian Porciuncula',
         'role' => 'Member',
@@ -69,7 +65,6 @@ $teamMembers = [
         'linkedin' => 'http://www.linkedin.com/in/ian-adriann-porciuncula-4126b9322',
         'coursera' => 'https://www.coursera.org/user/685d395df259e193d48f1b3eccdba104'
     ],
-    // profile 5 
     [
         'name' => 'Lester Plandaño',
         'role' => 'Member',
@@ -176,11 +171,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="contact-container">
    <img src="Assets/logo.jpg" alt="Contact Image" class="contact-image">
 
-   <form id="contactFormElement" action="submit.php" method="post" onsubmit="showAlert(event)">
+   <form id="contactFormElement" action="submit.php" method="post" onsubmit="return handleFormSubmit(event)">
     <div class="input-group">
      <div class="input-box">
       <input type="text" id="name" name="name" required placeholder="Full Name">
-      <input type="email" id="email" name="email" required placeholder="Email">
+      <input type="email" id="email" name="email" required placeholder="Email"
+       value="<?php echo isset($_COOKIE['userEmail']) ? htmlspecialchars($_COOKIE['userEmail']) : ''; ?>">
      </div>
     </div>
     <div class="input-box">
@@ -194,8 +190,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    </form>
   </div>
  </section>
-
-
  <?php
     include 'footer.php';
 ?>

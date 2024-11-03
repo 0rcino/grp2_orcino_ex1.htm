@@ -82,19 +82,12 @@ if (isset($_GET['q']) && !empty($_GET['q'])) {
 
     if (count($results) > 0) {
         foreach ($results as $member) {
-            echo "<div style='border: 1px solid rgb(125, 125, 235); padding: 10px; margin-top: 50px'>";
-            echo "<img src='" . htmlspecialchars($member['image']) . "' alt='" . htmlspecialchars($member['name']) . "' style='width:100px;height:100px; margin-top: 10px'>";
-            echo "<p><strong>Name:</strong> " . htmlspecialchars($member['name']) . "</p>";
-            echo "<p><strong>Role:</strong> " . htmlspecialchars($member['role']) . "</p>";
-            echo "<p><strong>Course:</strong> " . htmlspecialchars($member['course']) . "</p>";
-            echo "<p><strong>Contact:</strong> " . htmlspecialchars($member['contact']) . "</p>";
-            echo "<p><strong>Address:</strong> " . htmlspecialchars($member['address']) . "</p>";
-            echo "<p style='text-align: center;'>";  
-            echo "<a href='" . htmlspecialchars($member['github']) . "' target='_blank' style='margin-right: 10px;'><i class='fab fa-github'></i></a> ";
-            echo "<a href='" . htmlspecialchars($member['facebook']) . "' target='_blank' style='margin-right: 10px;'><i class='fab fa-facebook'></i></a> ";
-            echo "<a href='" . htmlspecialchars($member['linkedin']) . "' target='_blank' style='margin-right: 10px;'><i class='fab fa-linkedin'></i></a> ";
-            echo "<a href='" . htmlspecialchars($member['coursera']) . "' target='_blank'><i class='fas fa-copyright'></i></a>";
-            echo "</p>";
+            echo "<div style='border: 1px solid rgb(125, 125, 235); padding: 15px; margin: 30px auto; max-width: 350px; text-align: center; border-radius: 15px;'>";
+            echo "<img src='" . htmlspecialchars($member['image']) . "' alt='" . htmlspecialchars($member['name']) . "' style='width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px;'>";
+            echo "<p><strong style='color: blue;'>Name:</strong> " . htmlspecialchars($member['name']) . "</p>";
+            echo "<p><strong style='color: darkblue;'>Role:</strong> " . htmlspecialchars($member['role']) . "</p>"; 
+            echo "<p><strong style='color: green;'>Course:</strong> " . htmlspecialchars($member['course']) . "</p>";
+            echo "</div>";
             echo "</div>";
         }
     } else {

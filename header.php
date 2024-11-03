@@ -27,22 +27,16 @@
 </head>
 
 <body>
-
  <div class="header-container">
-  <!-- Logo on the left side -->
   <div class="logo">
    <img src="Assets/logo.jpg" alt="Logo" />
   </div>
-
-  <!-- Centered search bar -->
   <div class="searchbar">
    <form action="grp2.php" method="GET">
     <input type="text" name="query" id="query" onkeyup="showResult(this.value)" placeholder="Name Search">
     <input type="submit" value="Search">
    </form>
   </div>
-
-  <!-- Navigation links and logout button on the right side -->
   <div class="navbar-links">
    <a href="#Team">Home</a>
    <a href="#teams">Team</a>
@@ -52,8 +46,6 @@
    </a>
   </div>
  </div>
-
- <!-- Live search results container -->
  <div id="livesearch" class="search-results">
   <div class="search-results">
    <?php
@@ -80,9 +72,7 @@
     ?>
   </div>
  </div>
-
  <button onclick="confirmPrintTeamData()" class="team-data-btn">Team Data</button>
-
 </body>
 
 </html>

@@ -6,17 +6,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $subject = htmlspecialchars(trim($_POST['subject']));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    // Validate email format
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "Invalid email format";
         exit;
     }
+    $data = "Name: " . $name . "\n";
+    $data .= "Email: " . $email . "\n";
+    $data .= "Phone Number: " . $number . "\n";
+    $data .= "Subject: " . $subject . "\n";
+    $data .= "Message: " . $message . "\n";
+    $data .= "---------------------------\n";
 
-    // Display the submitted data
-    echo "Name: " . $name . "<br>";
-    echo "Email: " . $email . "<br>";
-    echo "Phone Number: " . $number . "<br>";
-    echo "Subject: " . $subject . "<br>";
-    echo "Message: " . $message . "<br>";
+    $file = 'contact_submissions.txt';
+
+    if (file_put_contents($file, $data, FILE_APPEND | LOCK_EX)) {
+        echo "Your message has been saved successfully!";
+    } else {
+        echo "There was an error saving your message.";
+    }
 }
 ?>

@@ -1,11 +1,8 @@
 <?php
-// Start the session and include necessary files
 session_start();
 include('connect.php');
 
-// Define team members array
 $teamMembers = [
-// profile 1
     [
         'name' => 'Allen Jefferson C. Orcino',
         'role' => 'Assistant Leader',
@@ -20,7 +17,6 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/allenjefferson-orcino-b82924322/?trk=opento_sprofile_topcard',
         'coursera' => 'https://www.coursera.org/user/fba21b844e5e2a0e91abcb31449b73f1'
     ],
-    // profile 2
     [
         'name' => 'Jhonrey Kyle C. Lugon',
         'role' => 'Leader',
@@ -35,7 +31,6 @@ $teamMembers = [
         'linkedin' => 'http://www.linkedin.com/in/jhonreykylelugon',
         'coursera' => 'https://www.coursera.org/learner/kyle'
     ],
-    // profile 3
     [
         'name' => 'Hannah Grace Traya',
         'role' => 'Member',
@@ -50,7 +45,6 @@ $teamMembers = [
         'linkedin' => 'https://www.linkedin.com/in/hannah-grace-traya-2a4944322',
         'coursera' => 'https://www.coursera.org/learner/hannah-grace-traya-8888'
     ],
-    // profile 4
     [
         'name' => 'Ian Adrian Porciuncula',
         'role' => 'Member',
@@ -65,7 +59,6 @@ $teamMembers = [
         'linkedin' => 'http://www.linkedin.com/in/ian-adriann-porciuncula-4126b9322',
         'coursera' => 'https://www.coursera.org/user/685d395df259e193d48f1b3eccdba104'
     ],
-    // profile 5 
     [
         'name' => 'Lester Plandaño',
         'role' => 'Member',
@@ -83,7 +76,6 @@ $teamMembers = [
     
 ];
 
-// Create the content for the file with full profile information for each team member
 $content = "Team Members:\n";
 $content .= "Generated on: " . date("Y-m-d H:i:s") . "\n\n";
 
@@ -94,20 +86,13 @@ foreach ($teamMembers as $member) {
     $content .= "Age: " . $member['age'] . "\n";
     $content .= "Gender: " . $member['gender'] . "\n";
     $content .= "Contact: " . $member['contact'] . "\n";
-    $content .= "Address: " . $member['address'] . "\n";
-    $content .= "GitHub: " . $member['github'] . "\n";
-    $content .= "Facebook: " . $member['facebook'] . "\n";
-    $content .= "LinkedIn: " . $member['linkedin'] . "\n";
-    $content .= "Coursera: " . $member['coursera'] . "\n";
     $content .= "--------------------------------------------------------------------------------------------\n";
 }
 
-// Set headers to prompt download as a .txt file
 header('Content-Type: text/plain');
 header('Content-Disposition: attachment; filename="team_data.txt"');
 header('Content-Length: ' . strlen($content));
 
-// Output the content
 echo $content;
 exit;
 ?>

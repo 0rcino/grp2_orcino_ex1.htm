@@ -163,3 +163,7 @@ function confirmPrintTeamData() {
         window.location.href = 'print_team_data.php';
     }
 }
+function handleFormSubmit(event) {
+    alert('Message sent successfully!');
+    return true;
+}
